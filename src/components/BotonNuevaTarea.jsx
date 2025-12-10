@@ -10,4 +10,3 @@ function BotonNuevaTarea({ onClick }) {
 }
 
 export default BotonNuevaTarea
-
