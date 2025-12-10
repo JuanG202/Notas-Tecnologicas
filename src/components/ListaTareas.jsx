@@ -39,4 +39,3 @@ function ListaTareas({ tareas, onEditar, onEliminar, onToggleCompletada }) {
 }
 
 export default ListaTareas
-

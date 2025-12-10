@@ -69,4 +69,3 @@ function TarjetaTarea({ tarea, onEditar, onEliminar, onToggleCompletada }) {
 }
 
 export default TarjetaTarea
-

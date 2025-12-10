@@ -145,4 +145,3 @@ function FormularioTarea({ tareaEditando, onGuardar, onCancelar }) {
 }
 
 export default FormularioTarea
-
