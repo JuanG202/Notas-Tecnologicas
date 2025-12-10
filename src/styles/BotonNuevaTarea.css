@@ -1,0 +1,47 @@
+.btn-nueva-tarea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  margin-bottom: 30px;
+}
+
+.btn-nueva-tarea:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-nueva-tarea:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+}
+
+.btn-nueva-tarea-icono {
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.btn-nueva-tarea-texto {
+  letter-spacing: 0.3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btn-nueva-tarea {
+    width: 100%;
+    padding: 16px 28px;
+    font-size: 1em;
+  }
+}
+

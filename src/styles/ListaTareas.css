@@ -1,0 +1,91 @@
+.lista-tareas {
+  width: 100%;
+}
+
+.lista-tareas-header {
+  margin-bottom: 24px;
+}
+
+.lista-tareas-titulo {
+  color: black;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lista-tareas-contador {
+  font-size: 0.8em;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.lista-tareas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.lista-tareas-vacia {
+  background: white;
+  border-radius: 16px;
+  padding: 60px 40px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lista-tareas-vacia-contenido {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.lista-tareas-vacia-icono {
+  font-size: 4em;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+
+.lista-tareas-vacia-titulo {
+  font-size: 1.5em;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.lista-tareas-vacia-texto {
+  font-size: 1em;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lista-tareas-titulo {
+    font-size: 1.5em;
+  }
+
+  .lista-tareas-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .lista-tareas-vacia {
+    padding: 40px 20px;
+  }
+
+  .lista-tareas-vacia-icono {
+    font-size: 3em;
+  }
+
+  .lista-tareas-vacia-titulo {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 480px) {
+  .lista-tareas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -1,0 +1,181 @@
+.tarjeta-tarea {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  border-left: 4px solid #667eea;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.tarjeta-tarea:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.tarjeta-tarea.completada {
+  opacity: 0.75;
+  border-left-color: #10b981;
+  background: linear-gradient(to right, #f0fdf4 0%, white 5%);
+}
+
+.tarjeta-badge-completada {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  z-index: 1;
+}
+
+.tarjeta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-right: 20px;
+}
+
+.tarjeta-titulo {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.4em;
+  font-weight: 600;
+  line-height: 1.3;
+  flex: 1;
+  word-break: break-word;
+}
+
+.tarjeta-tarea.completada .tarjeta-titulo {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.tarjeta-acciones {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.tarjeta-btn-icon {
+  background: none;
+  border: none;
+  font-size: 1.4em;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.tarjeta-btn-icon:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.1);
+}
+
+.tarjeta-btn-icon:active {
+  transform: scale(0.95);
+}
+
+.tarjeta-btn-eliminar:hover {
+  background-color: #fee2e2;
+}
+
+.tarjeta-descripcion {
+  color: #4b5563;
+  line-height: 1.6;
+  word-break: break-word;
+  flex: 1;
+}
+
+.tarjeta-descripcion p {
+  margin: 0;
+  font-size: 0.95em;
+}
+
+.tarjeta-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.9em;
+  margin-top: auto;
+}
+
+.tarjeta-tecnico {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.tarjeta-fecha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+}
+
+.tarjeta-icono {
+  font-size: 1.1em;
+  flex-shrink: 0;
+}
+
+.tarjeta-tecnico-nombre {
+  font-size: 0.95em;
+}
+
+.tarjeta-fecha-texto {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.tarjeta-fecha-edicion {
+  font-size: 0.85em;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tarjeta-tarea {
+    padding: 20px;
+  }
+
+  .tarjeta-titulo {
+    font-size: 1.2em;
+  }
+
+  .tarjeta-header {
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 0;
+  }
+
+  .tarjeta-acciones {
+    align-self: flex-end;
+  }
+
+  .tarjeta-badge-completada {
+    position: static;
+    align-self: flex-start;
+    margin-bottom: -8px;
+  }
+}
+
