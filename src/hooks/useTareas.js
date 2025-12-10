@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000/tareas";
+const BASE_URL = "https://notas-tecnologicas-backend.vercel.app/tareas";
 
 function normalizeTarea(t) {
   // Convierte _id (Mongo) a id para no tocar los componentes
