@@ -2,6 +2,12 @@ import TarjetaTarea from './TarjetaTarea'
 import '../styles/ListaTareas.css'
 
 function ListaTareas({ tareas, onEditar, onEliminar, onToggleCompletada }) {
+  // Ordenar: primero no terminadas, luego terminadas
+  const tareasOrdenadas = [...tareas].sort((a, b) => {
+    // Si usas "completada" boolean
+    return a.completada === b.completada ? 0 : a.completada ? 1 : -1
+  })
+
   if (tareas.length === 0) {
     return (
       <div className="lista-tareas-vacia">
@@ -24,7 +30,7 @@ function ListaTareas({ tareas, onEditar, onEliminar, onToggleCompletada }) {
         </h2>
       </div>
       <div className="lista-tareas-grid">
-        {tareas.map(tarea => (
+        {tareasOrdenadas.map(tarea => (
           <TarjetaTarea
             key={tarea.id}
             tarea={tarea}
