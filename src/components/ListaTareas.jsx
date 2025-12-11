@@ -2,11 +2,16 @@ import TarjetaTarea from './TarjetaTarea'
 import '../styles/ListaTareas.css'
 
 function ListaTareas({ tareas, onEditar, onEliminar, onToggleCompletada }) {
-  // Ordenar: primero no terminadas, luego terminadas
+  // Ordenar primero por completada y luego por fecha (más reciente → más vieja)
   const tareasOrdenadas = [...tareas].sort((a, b) => {
-    // Si usas "completada" boolean
-    return a.completada === b.completada ? 0 : a.completada ? 1 : -1
-  })
+    // 1️⃣ Primero: no completadas arriba
+    if (a.completada !== b.completada) {
+      return a.completada ? 1 : -1;
+    }
+
+    // 2️⃣ Segundo: ordenar por fecha DESC (recientes primero)
+    return new Date(b.fecha) - new Date(a.fecha);
+  });
 
   if (tareas.length === 0) {
     return (
