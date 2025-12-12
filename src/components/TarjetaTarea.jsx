@@ -1,6 +1,18 @@
 import '../styles/TarjetaTarea.css'
 
 function TarjetaTarea({ tarea, onEditar, onEliminar, onToggleCompletada }) {
+
+  const formatearFecha = (fechaIso) => {
+    if (!fechaIso) return '';
+
+    const fecha = new Date(fechaIso);
+
+    return new Intl.DateTimeFormat('es-CO', {
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    }).format(fecha);
+  };
+
   return (
     <div className={`tarjeta-tarea ${tarea.completada ? 'completada' : ''}`}>
       {tarea.completada && (
@@ -52,13 +64,16 @@ function TarjetaTarea({ tarea, onEditar, onEliminar, onToggleCompletada }) {
             <span className="tarjeta-tecnico-nombre">{tarea.tecnico}</span>
           </div>
         )}
+
         <div className="tarjeta-fecha">
           <span className="tarjeta-icono">📅</span>
+
           <span className="tarjeta-fecha-texto">
-            {tarea.fechaCreacion}
+            {formatearFecha(tarea.fechaCreacion)}
+
             {tarea.fechaActualizacion && (
               <span className="tarjeta-fecha-edicion">
-                {' '}(Editada: {tarea.fechaActualizacion})
+                {' '} (Editada: {formatearFecha(tarea.fechaActualizacion)})
               </span>
             )}
           </span>

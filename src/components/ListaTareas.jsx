@@ -15,24 +15,27 @@ function ListaTareas({ tareas, onEditar, onEliminar, onToggleCompletada }) {
 
   if (tareas.length === 0) {
     return (
-      <div className="lista-tareas-vacia">
-        <div className="lista-tareas-vacia-contenido">
-          <div className="lista-tareas-vacia-icono">📋</div>
-          <h3 className="lista-tareas-vacia-titulo">No hay tareas aún</h3>
-          <p className="lista-tareas-vacia-texto">
-            ¡Crea tu primera tarea para comenzar a organizar tus pendientes!
-          </p>
+      <>
+        <div className="lista-tareas-vacia">
+          <div className="lista-tareas-vacia-contenido">
+            <div className="lista-tareas-vacia-icono">📋</div>
+            <h3 className="lista-tareas-vacia-titulo">No hay tareas aún</h3>
+            <p className="lista-tareas-vacia-texto">
+              ¡Crea tu primera tarea para comenzar a organizar tus pendientes!
+            </p>
+          </div>
         </div>
-      </div>
+        <footer className="home-footer">
+          <p>Sistema de Gestión de Préstamos © {new Date().getFullYear()}</p>
+          <p>Tasa de interés: 15% mensual</p>
+        </footer>
+      </>
     )
   }
 
   return (
     <div className="lista-tareas">
       <div className="lista-tareas-header">
-        <h2 className="lista-tareas-titulo">
-          Tareas <span className="lista-tareas-contador">({tareas.length})</span>
-        </h2>
       </div>
       <div className="lista-tareas-grid">
         {tareasOrdenadas.map(tarea => (
@@ -45,6 +48,10 @@ function ListaTareas({ tareas, onEditar, onEliminar, onToggleCompletada }) {
           />
         ))}
       </div>
+      
+      <footer className="home-footer">
+        <p>Sistema de Gestión de Tareas © {new Date().getFullYear()}</p>
+      </footer>
     </div>
   )
 }
