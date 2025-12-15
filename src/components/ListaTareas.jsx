@@ -51,6 +51,7 @@ function ListaTareas({ tareas, onEditar, onEliminar, onToggleCompletada }) {
       
       <footer className="home-footer">
         <p>Sistema de Gestión de Tareas © {new Date().getFullYear()}</p>
+        <p>Mundo de la tecnologia</p>
       </footer>
     </div>
   )
