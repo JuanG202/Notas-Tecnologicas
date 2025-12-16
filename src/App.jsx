@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { useTareas } from './hooks/useTareas'
 import Header from './components/Header'
 import BotonNuevaTarea from './components/BotonNuevaTarea'
 import FormularioTarea from './components/FormularioTarea'
 import ListaTareas from './components/ListaTareas'
+import Login from './components/Login'
+import Register from './components/Register'
 import './App.css'
 
-function App() {
+function TareasPage({ onLogout }) {
   const { tareas, crearTarea, actualizarTarea, eliminarTarea, toggleCompletada } = useTareas()
   const [mostrarFormulario, setMostrarFormulario] = useState(false)
   const [tareaEditando, setTareaEditando] = useState(null)
@@ -42,14 +45,26 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <>
       <Header tareas={tareas} />
-      
+
       <main className="main">
         <div className="main-container">
-          {!mostrarFormulario ? (
-            <BotonNuevaTarea onClick={() => setMostrarFormulario(true)} />
-          ) : (
+          <div className="acciones-superiores">
+            {!mostrarFormulario && (
+              <BotonNuevaTarea onClick={() => setMostrarFormulario(true)} />
+            )}
+
+            <button
+              type="button"
+              className="btn-logout"
+              onClick={onLogout}
+            >
+              Cerrar sesión
+            </button>
+          </div>
+
+          {mostrarFormulario && (
             <FormularioTarea
               tareaEditando={tareaEditando}
               onGuardar={manejarGuardar}
@@ -65,7 +80,54 @@ function App() {
           />
         </div>
       </main>
-    </div>
+    </>
+  )
+}
+
+function ProtectedRoute({ isAuthenticated, children }) {
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />
+  }
+  return children
+}
+
+function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem('notas_auth') === 'true'
+    setIsAuthenticated(stored)
+  }, [])
+
+  const handleLogin = () => {
+    setIsAuthenticated(true)
+    window.localStorage.setItem('notas_auth', 'true')
+  }
+
+  const handleLogout = () => {
+    setIsAuthenticated(false)
+    window.localStorage.removeItem('notas_auth')
+  }
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/login"
+          element={<Login onLogin={handleLogin} />}
+        />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/tareas"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <TareasPage onLogout={handleLogout} />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
