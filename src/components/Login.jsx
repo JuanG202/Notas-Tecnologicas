@@ -53,9 +53,9 @@ function Login({ onLogin }) {
           </button>
         </form>
 
-        <p className="auth-footer-text">
+        {/*<p className="auth-footer-text">
           ¿No tienes cuenta? <Link to="/register">Crear cuenta</Link>
-        </p>
+        </p>*/}
       </div>
     </div>
   )
