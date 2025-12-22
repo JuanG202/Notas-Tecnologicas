@@ -1,29 +1,30 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import axios from 'axios'
 import '../styles/Auth.css'
 
 function Login({ onLogin }) {
   const navigate = useNavigate()
-  const [email, setEmail] = useState('demo@notas.com')
-  const [password, setPassword] = useState('123456')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    try {
+      const res = await axios.post(
+        "https://notas-tecnologicas-backend.vercel.app/auth/login",
+        { email, password }
+      )
 
-    const validEmail = 'demo@notas.com'
-    const validPassword = '123456'
+      localStorage.setItem('token', res.data.token)
+      localStorage.setItem('notas_auth', 'true')
 
-    if (email === validEmail && password === validPassword) {
-      setError('')
-      if (onLogin) {
-        onLogin()
-      }
+      onLogin()
       navigate('/tareas')
-    } else {
-      setError('Credenciales inválidas. Usa demo@notas.com / 123456')
+    } catch (err) {
+      setError(err.response?.data?.mensaje || 'Credenciales inválidas')
     }
-
   }
 
   return (
@@ -37,26 +38,12 @@ function Login({ onLogin }) {
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="auth-field">
             <label htmlFor="email">Correo electrónico</label>
-            <input
-              id="email"
-              type="email"
-              placeholder="tu@correo.com"
-              autoComplete="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <input value={email} onChange={e => setEmail(e.target.value)} />
           </div>
 
           <div className="auth-field">
             <label htmlFor="password">Contraseña</label>
-            <input
-              id="password"
-              type="password"
-              placeholder="••••••••"
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
           </div>
 
           {error && <p className="auth-error">{error}</p>}
