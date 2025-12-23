@@ -6,6 +6,29 @@
   padding: 24px;
   background: radial-gradient(circle at top, #e0e7ff 0, #f4f4fb 45%, #ffffff 100%);
 }
+.auth-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/notas.jpg");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  opacity: 1;
+  z-index: 0;
+  /* Mejoras para mejor calidad de imagen */
+  image-rendering: auto;
+  transform: translateZ(0);
+  will-change: transform;
+  /* Filtro sutil para mejorar la apariencia */
+  filter: brightness(1.05) contrast(1.05) saturate(1.1);
+}
 
 .auth-card {
   width: 100%;
@@ -72,44 +95,6 @@
   border-color: #818cf8;
   box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.45);
   background: #ffffff;
-}
-
-.auth-page::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../assets/notas.jpg");
-  background-size: contain;
-  background-position: center center;
-  background-repeat: repeat;
-  background-attachment: scroll;
-  opacity: 1;
-  z-index: 0;
-  /* Mejoras para mejor calidad de imagen */
-  image-rendering: auto;
-  transform: translateZ(0);
-  will-change: transform;
-  /* Filtro sutil para mejorar la apariencia */
-  filter: brightness(1.05) contrast(1.05) saturate(1.1);
-}
-
-.auth-page::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  /* Overlay más sutil para que la imagen se vea mejor */
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
-  z-index: 0;
 }
 
 
