@@ -6,6 +6,55 @@
   padding: 24px;
   background: radial-gradient(circle at top, #e0e7ff 0, #f4f4fb 45%, #ffffff 100%);
 }
+.auth-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/notas.jpg");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  opacity: 1;
+  z-index: 0;
+  /* Mejoras para mejor calidad de imagen */
+  image-rendering: auto;
+  transform: translateZ(0);
+  will-change: transform;
+  /* Filtro sutil para mejorar la apariencia */
+  filter: brightness(1.05) contrast(1.05) saturate(1.1);
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 45px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #667eea;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password:hover {
+  color: #764ba2;
+}
+
 
 .auth-card {
   width: 100%;
@@ -73,6 +122,7 @@
   box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.45);
   background: #ffffff;
 }
+
 
 .auth-button {
   margin-top: 4px;
