@@ -30,6 +30,16 @@
   filter: brightness(1.05) contrast(1.05) saturate(1.1);
 }
 
+.created {
+  position: fixed;
+  text-decoration: none;
+  bottom: 10px;
+  left: 15px;
+  color: #ffffff83;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .password-wrapper {
   position: relative;
   display: flex;

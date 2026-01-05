@@ -42,7 +42,7 @@ function Login({ onLogin }) {
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="auth-field">
             <label htmlFor="email">Correo electrónico</label>
-            <input value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ejemplo@gmail.com"/>
           </div>
 
           <div className="auth-field">
@@ -73,11 +73,11 @@ function Login({ onLogin }) {
             Iniciar sesión
           </button>
         </form>
-
         {/*<p className="auth-footer-text">
           ¿No tienes cuenta? <Link to="/register">Crear cuenta</Link>
         </p>*/}
       </div>
+      <a href="https://elmundodelatecnologiaf.vercel.app/" target="_black" className="created">Created by: El Mundo De La Tecnologia</a>
     </div>
   );
 }
