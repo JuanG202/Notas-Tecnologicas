@@ -92,12 +92,9 @@ function ProtectedRoute({ isAuthenticated, children }) {
 }
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem('notas_auth') === 'true'
-    setIsAuthenticated(stored)
-  }, [])
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return window.localStorage.getItem('notas_auth') === 'true'
+  })
 
   const handleLogin = () => {
     setIsAuthenticated(true)
@@ -113,7 +110,6 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        {/* SIEMPRE ARRANCA EN LOGIN */}
         <Route path="/" element={<Navigate to="/login" replace />} />
 
         <Route
@@ -135,12 +131,12 @@ function App() {
           }
         />
 
-        {/* CUALQUIER RUTA RARA → LOGIN */}
         <Route path="*" element={<Navigate to="/login" replace />} />
 
       </Routes>
     </BrowserRouter>
   )
 }
+
 
 export default App
