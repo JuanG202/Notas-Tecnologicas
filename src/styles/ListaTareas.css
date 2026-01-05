@@ -83,6 +83,11 @@
   font-size: 15px;
 }
 
+.created-header {
+  text-decoration: none;
+  color: white;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .lista-tareas-titulo {
