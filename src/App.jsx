@@ -113,15 +113,8 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        {/* RUTA RAÍZ */}
-        <Route
-          path="/"
-          element={
-            isAuthenticated
-              ? <Navigate to="/tareas" replace />
-              : <Navigate to="/login" replace />
-          }
-        />
+        {/* SIEMPRE ARRANCA EN LOGIN */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
 
         <Route
           path="/login"
@@ -142,8 +135,8 @@ function App() {
           }
         />
 
-        {/* RUTA COMODÍN */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {/* CUALQUIER RUTA RARA → LOGIN */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
 
       </Routes>
     </BrowserRouter>
