@@ -86,7 +86,7 @@ function TareasPage({ onLogout }) {
 
 function ProtectedRoute({ isAuthenticated, children }) {
   if (!isAuthenticated) {
-    
+    return <Navigate to="/login" replace />
   }
   return children
 }
@@ -112,11 +112,27 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+
+        {/* RUTA RAÍZ */}
+        <Route
+          path="/"
+          element={
+            isAuthenticated
+              ? <Navigate to="/tareas" replace />
+              : <Navigate to="/login" replace />
+          }
+        />
+
         <Route
           path="/login"
           element={<Login onLogin={handleLogin} />}
         />
-        <Route path="/register" element={<Register />} />
+
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+
         <Route
           path="/tareas"
           element={
@@ -125,6 +141,10 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        {/* RUTA COMODÍN */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+
       </Routes>
     </BrowserRouter>
   )
