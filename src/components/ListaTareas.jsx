@@ -51,7 +51,7 @@ function ListaTareas({ tareas, onEditar, onEliminar, onToggleCompletada }) {
       
       <footer className="home-footer">
         <p>Sistema de Gestión de Tareas © {new Date().getFullYear()}</p>
-        <p>Created by: El Mundo De La Tecnologia</p>
+        <p href="https://elmundodelatecnologiaf.vercel.app/" target="_black">Created by: El Mundo De La Tecnologia</p>
       </footer>
     </div>
   )
