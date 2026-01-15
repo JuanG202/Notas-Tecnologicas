@@ -107,6 +107,8 @@ function FormularioTarea({ tareaEditando, onGuardar, onCancelar }) {
             <option value="">Sin asignar</option>
             <option value="Juan Granja">Juan Granja</option>
             <option value="Kevin Rivas">Kevin Rivas</option>
+            <option value="Daniela Loaiza">Daniela Loaiza</option>
+            <option value="Tatiana Montoya">Tatiana Montoya</option>
             {/*<option value="Sistemas">Sistemas</option> */}
             <option value="Ambos">Ambos</option>
           </select>
